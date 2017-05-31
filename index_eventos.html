@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso de Vue.Js</title>
+</head>
+<body>
+  <div id="app">
+    <button type="button" @click="restar">-</button>
+    El contador está en {{ contador }}
+    <button type="button" @click="sumar">+</button>
+  </div>
+
+  <!--vuejs-->
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    let app = new Vue({
+      el: '#app',
+      data: {
+        contador: 0
+      },
+      //Manejo de eventos con Methods
+      methods:{
+        sumar: function(){this.contador++},
+        restar: function(){this.contador--}
+      }
+    })
+  </script>
+</body>
+</html>
