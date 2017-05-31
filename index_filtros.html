@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso de Vue.Js</title>
+</head>
+<body>
+  <div id="app">
+    <!--Se le llama PIPES > | < para pasar filtros en las expresiones-->
+      <h1>{{ titulo | capitalize }}</h1>
+      <h2>{{ subtitulo | lowercase }}</h2>
+      <!--{{}} se llaman expresiones-->
+  </div>
+
+  <!--vuejs-->
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    let app = new Vue({
+      el: '#app',
+      data: {
+        titulo: "dstas en platzi",
+        subtitulo: "Estas viendo el curso de VueJs"
+      },
+      filters: {
+        uppercase: function(str){
+          return str.toUpperCase()
+        } ,
+        lowercase: function(str){
+          return str.toLowerCase()
+        } ,
+        capitalize: function(str){
+          let cap = str.charAt(0).toUpperCase();
+          let plus = str.slice(1).toLowerCase();
+          return cap + plus
+        }
+      }
+    })
+  </script>
+</body>
+</html>
