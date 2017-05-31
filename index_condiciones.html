@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso de Vue.Js</title>
+</head>
+<body>
+  <div id="app">
+    <!--v-if o v-show
+        V-show no puede usar templates,
+        v-if si puede usarlo.
+        dado que show mantiene el elemento
+        e if destruye lo otro.-->
+    <!--template se utiliza como sandbox no se agrega al html-->
+    <div v-show="mostrar">
+      <h1>Este es mi titulo</h1>
+      <h2>Este es mi subtitulo</h2>
+      <!--{{}} se llaman expresiones-->
+      <!--v-if funciona como el if normal, para validar booleanos-->
+      <a :href="url" target="_blank">{{pagina}}</a>
+    </div>
+    <div v-show="!mostrar">
+      Esto esta oculto
+    </div>
+  </div>
+
+  <!--vuejs-->
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    let app = new Vue({
+      el: '#app',
+      data: {
+        nombre: 'Luis!',
+        url: 'https://google.com',
+        pagina: 'Ir a google',
+        mostrar: true
+      }
+    })
+  </script>
+</body>
+</html>
