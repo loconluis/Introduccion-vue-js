@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso de Vue.Js</title>
+</head>
+<body>
+  <!--manejo de formularios-->
+  <div id="app">
+    <!--vmodel-->
+    <!--v-for= "variable dentro del iterador"-->
+    <form @submit.prevent="submit">
+        <h2>¿Cuáles son tus cursos favoritos?</h2>
+        <template v-for="curso in cursos">
+          <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
+          <label v-bind:for="curso.value">{{ curso.nombre }}</label>
+        </template>
+        <button type="submit">Enviar</button>
+      </form>
+  </div>
+
+  <!--vuejs-->
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    let app = new Vue({
+      el: '#app',
+      data: {
+        cursos: [
+          {nombre: 'Curso de Vue.Js',
+          value: 'vue'},
+          {nombre: 'Curso de SEO',
+          value: 'seo'},
+          {nombre: 'Curso de React y Redux',
+          value: 'react'},
+          {nombre: 'Curso Growth Marketing',
+          value: 'growth'}
+        ],
+        cursosSeleccionados: []
+      },
+      methods: {
+        submit: function () {
+          console.log('Se ejecuta el método submit');
+          console.log(this.cursosSeleccionados);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
